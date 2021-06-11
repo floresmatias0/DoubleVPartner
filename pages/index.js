@@ -2,7 +2,9 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import styles from '../styles/Home.module.css';
 import Head from 'next/head';
-import Layout from '../components/layout'
+import Layout from '../components/layout';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Home = () => {
   const [users,setUsers] = useState();
@@ -15,9 +17,11 @@ const Home = () => {
           await fetch(`https://api.github.com/search/users?q=${data.name}`)
           .then(res => res.json())
           .then(data => {
+            console.log(data)
             setUsers(data.items);
           })
         setLoading(false);
+
     }
 
   return (
@@ -29,11 +33,17 @@ const Home = () => {
         <input
           type="text"
           name="name"
-          {...register("name", { required: true })}
+          placeholder="write name of profile"
+          {...register("name", { required: true ,
+            minLength: { value: 4, message: "shouldnt be short min: 4 letter"},
+            maxLength: { value: "doublevpartners", message: "cant search this word"}
+          })}
         />
         {errors.name && <span>This field is required</span>}
+        {errors.name && errors.name.type === "minLength" && <span>{errors.name.message}</span>}
 
-        <input type="submit" />
+
+        <button type="submit">search</button>
       </form>
       <div className={styles.profileSearch}>
         {loading ? (
@@ -41,13 +51,22 @@ const Home = () => {
         ):(
           users && users.length > 0 ? (
             users.map((user,i) => {
-              return (
-                <div key={i}>
-                  <h2>{user.login}</h2>
-                  <img src={user.avatar_url} alt="perfil"/>
-                </div>
-              )
+              if(user.login === "doublevpartners"){
+                return (
+                  <h1>sorry this profile not access</h1>
+                )
+              }else{
+                return (
+                  <Link href="/[login]" as={`/${user.login}`} key={i}>
+                    <div className={styles.card} >
+                        <h2>{user.id}</h2>
+                        <h2>{user.login}</h2>
+                    </div>
+                  </Link>
+                )
+              }
             })
+
           ):(
             <p></p>
           )

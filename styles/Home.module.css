@@ -10,6 +10,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin-top: 1em;
 }
 .form{
   display: flex;
@@ -25,7 +26,37 @@
   border: none;
   outline: none;
   box-shadow: 2px 2px 5px white;
+  text-align: center;
+}
+.form input::placeholder{
+  text-align: center;
+}
+.form button{
+  width: 6em;
+  font-size: 1.2rem;
+  border-radius: 0.5em;
+  background-color: transparent;
+  border: 2px solid darkgray;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+.form button:hover{
+  border: 2px solid darkblue;
 }
 .form span{
   color: red;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+.card{
+  width: 15em;
+  text-align: center;
+  border-radius: 1em;
+  border: 2px solid darkgray;
+  cursor: pointer;
+}
+.card:hover{
+    border: 2px solid darkblue;
 }

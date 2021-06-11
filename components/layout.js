@@ -18,6 +18,10 @@ const Layout = ({children}) => {
       </style>
       <style jsx>
       {`
+        nav{
+          width: 100%;
+          text-align: center;
+        }
         div{
           display: flex;
           flex-direction: column;
