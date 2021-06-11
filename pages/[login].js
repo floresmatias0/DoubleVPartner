@@ -23,7 +23,7 @@ const User = () => {
   },[])
 
   return (
-    <div>
+    <main>
     <Head>
       <title>{`${router.query.login}`}</title>
     </Head>
@@ -32,7 +32,9 @@ const User = () => {
         return (
           <div className="card" key={i}>
               <h1>{point.login}</h1>
-              <img src={point.avatar_url} alt="profile"/>
+              <div>
+                <img src={point.avatar_url} alt="profile"/>
+              </div>
           </div>
         )
       })
@@ -41,7 +43,8 @@ const User = () => {
     )}
     <style jsx>
     {`
-      div{
+      main{
+        width:100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -55,9 +58,15 @@ const User = () => {
         border: 2px solid darkgray;
         cursor: pointer;
       }
+      .card div{
+        display:flex;
+        box-sizing: border-box;
+        width:100%;
+      }
       .card img{
         width:100%;
         margin: 0.5em;
+        border-radius: 0.5em;
       }
     `}
     </style>
@@ -72,7 +81,7 @@ const User = () => {
       }
     `}
     </style>
-    </div>
+    </main>
   )
 }
 

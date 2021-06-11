@@ -18,7 +18,7 @@ const Home = () => {
           .then(res => res.json())
           .then(data => {
             console.log(data)
-            setUsers(data.items);
+            setUsers(data.items.slice(0,10));
           })
         setLoading(false);
 
