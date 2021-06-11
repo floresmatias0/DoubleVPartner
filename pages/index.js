@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
+import Head from 'next/head';
+import Layout from '../components/layout'
 
 const Home = () => {
   const [users,setUsers] = useState();
@@ -19,7 +21,10 @@ const Home = () => {
     }
 
   return (
-    <div className={styles.container}>
+    <Layout className={styles.container}>
+    <Head>
+      <title>DoubleVPartner</title>
+    </Head>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
@@ -48,7 +53,7 @@ const Home = () => {
           )
         )}
       </div>
-    </div>
+    </Layout>
   )
 }
 
