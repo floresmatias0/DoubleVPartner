@@ -25,7 +25,7 @@ const Home = () => {
     <Head>
       <title>DoubleVPartner</title>
     </Head>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
           name="name"
