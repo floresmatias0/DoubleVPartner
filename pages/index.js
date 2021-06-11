@@ -28,6 +28,10 @@ const Home = () => {
     <Layout className={styles.container}>
     <Head>
       <title>DoubleVPartner</title>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
     </Head>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <input
@@ -39,8 +43,8 @@ const Home = () => {
             maxLength: { value: "doublevpartners", message: "cant search this word"}
           })}
         />
-        {errors.name && <span>This field is required</span>}
-        {errors.name && errors.name.type === "minLength" && <span>{errors.name.message}</span>}
+        {errors.name && <span className={`animate__animated animate__shakeX`}>This field is required</span>}
+        {errors.name && errors.name.type === "minLength" && <span className={`animate__animated animate__shakeX`}>{errors.name.message}</span>}
 
 
         <button type="submit">search</button>
