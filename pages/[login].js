@@ -48,7 +48,8 @@ const User = () => {
         align-items: center;
       }
       .card{
-        width: 15em;
+        margin-top: 2em;
+        width: 30em;
         text-align: center;
         border-radius: 1em;
         border: 2px solid darkgray;
@@ -56,6 +57,7 @@ const User = () => {
       }
       .card img{
         width:100%;
+        margin: 0.5em;
       }
     `}
     </style>
